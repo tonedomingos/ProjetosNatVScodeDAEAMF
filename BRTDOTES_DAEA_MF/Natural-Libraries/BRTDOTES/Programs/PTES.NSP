@@ -1,0 +1,11 @@
+* >Natural Source Header 000000
+* :Mode R
+* :CP
+* :LineIncrement 10
+* <Natural Source Header
+DEFINE DATA LOCAL
+1 #NOME (A12)
+END-DEFINE
+INPUT USING MAP 'TES'
+WRITE #NOME
+END

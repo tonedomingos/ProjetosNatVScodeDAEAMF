@@ -1,0 +1,23 @@
+* >Natural Source Header 000000
+* :Mode S
+* :CP
+* <Natural Source Header
+/** New Program CATSAG.
+/**
+/** :author brtdo
+/* TODO Enter your code here
+DEFINE DATA
+  GLOBAL USING GLO
+    LOCAL
+    1 #PGM (A08)
+    1 #COMMAND (A20)
+END-DEFINE
+* INPUT #PGM (AD=O)
+MOVE 'TONE' TO +NOME
+MOVE 61 TO +IDADE
+COMPRESS 'READ ' 'MENU' TO #COMMAND
+WRITE #COMMAND
+STACK TOP COMMAND 'STOW'
+STACK TOP COMMAND #COMMAND
+WRITE  *DATA
+END

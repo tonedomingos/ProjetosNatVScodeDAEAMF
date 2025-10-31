@@ -1,0 +1,43 @@
+* >Natural Source Header 000000
+* :Mode R
+* :CP
+* <Natural Source Header
+* MAP2: PROTOTYPE VERSION 820 --- CREATED BY NAT 0902030002 ---
+* INPUT USING MAP 'XXXXXXXX'
+*     #NOME
+DEFINE DATA PARAMETER
+1 #NOME (A012)
+END-DEFINE
+FORMAT PS=023 LS=080 ZP=OFF SG=OFF KD=OFF IP=OFF
+* MAP2: MAP PROFILES *****************************        410***********
+* .TTAAAMMOO   D I D I N D I D I        ?_)¬&:+(                       *
+* 023079        N0NNLCN             X        01 SYSPROF NL             *
+************************************************************************
+INPUT          (     IP=OFF                                           /*
+                                                                       )
+/
+ 002T #NOME  (AD=MI ) /*.99U012 A012            .
+/
+/
+/
+/
+/
+/
+/
+/
+/
+/
+/
+/
+/
+/
+/
+/
+/
+/
+/
+/
+/
+* MAP2: VALIDATION *****************************************************
+* MAP2: END OF MAP *****************************************************
+END

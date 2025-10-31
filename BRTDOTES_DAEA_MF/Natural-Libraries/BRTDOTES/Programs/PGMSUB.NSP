@@ -1,0 +1,26 @@
+* >Natural Source Header 000000
+* :Mode S
+* :CP
+* <Natural Source Header
+/** New Program PGMSUB.
+/**
+/** :author brtdo
+/* TODO Enter your code here   TESTE SAVE BB
+DEFINE DATA LOCAL
+1 #TL-CARGO (A030)
+1 #TL-MATRICULA (A08)
+1 #TL-NOME (A039)
+1 #TL-ANIV (D)
+1 #MENSAGEM (A70)
+END-DEFINE
+REPEAT
+  RESET #TL-NOME
+  INPUT 'NOME EMPREGADO' #TL-NOME
+  CALLNAT 'SUBPGM1' #TL-CARGO  #TL-MATRICULA #TL-NOME #TL-ANIV #MENSAGEM
+  WRITE   #TL-MATRICULA
+    #TL-CARGO
+    #TL-NOME
+    #TL-ANIV
+    #MENSAGEM
+END-REPEAT
+END

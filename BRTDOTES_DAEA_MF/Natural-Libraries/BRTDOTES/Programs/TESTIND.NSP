@@ -1,0 +1,15 @@
+* >Natural Source Header 000000
+* :Mode S
+* :CP
+* <Natural Source Header
+/** New Program TESTIND.
+/**
+/** :author brtdo
+/* TODO Enter your code here
+DEFINE DATA
+  GLOBAL USING GLO
+  LOCAL
+END-DEFINE
+WRITE +NOME +IDADE
+END
+

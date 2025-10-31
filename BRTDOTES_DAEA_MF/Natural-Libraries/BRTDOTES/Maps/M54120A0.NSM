@@ -1,0 +1,138 @@
+* >Natural Source Header 000000
+* :Mode S
+* :CP IBM01140
+* <Natural Source Header
+* MAP2: PROTOTYPE VERSION 820 --- CREATED BY NAT 0902030002 ---
+* INPUT USING MAP 'XXXXXXXX'
+*     #TL-ANIV #TL-CARGO #TL-CEP #TL-CIDADE #TL-ENDERECO #TL-MATRICULA
+*     #TL-NOME #TL-PAIS LINES1.#TL-MES(*) LINES1.#TL-SALARIO(*)
+DEFINE DATA PARAMETER
+1 #TL-ANIV (D)
+1 #TL-CARGO (A030)
+1 #TL-CEP (A010)
+1 #TL-CIDADE (A020)
+1 #TL-ENDERECO (A054)
+1 #TL-MATRICULA (A008)
+1 #TL-NOME (A039)
+1 #TL-PAIS (A015)
+1 LINES1.#TL-MES (A009/00001:01000)
+1 LINES1.#TL-SALARIO (A011/00001:01000)
+END-DEFINE
+FORMAT PS=022 LS=080 ZP=OFF SG=OFF KD=ON  IP=OFF
+* MAP2: MAP PROFILES *****************************        410***********
+* .TTAAAMMOO   D I D I N D I D I        ?_)¬&:+(                       *
+* 024079        N0NNUCN             X        01 SYSDBA  YR             *
+************************************************************************
+INPUT          (     IP=OFF                                           /*
+                                                                       )
+ 001T 'SAG'
+ 024T 'SAGP - Administracao de Pessoal'
+ 066T 'Data:'
+ 072T *DATE /*.01S008 A008 .
+      (AD=DLOFHT )
+/
+ 001T *PROGRAM /*.01S008 A008 .
+      (AD=DLOFHT )
+ 066T 'Hora:'
+ 072T *TIMX /*.01S008 T    .
+      (AD=DLOFHT )
+/
+ 002T 'Matricula'
+/
+ 002T 'Nome'
+ 012T #TL-NOME /*.01U039 A039 .
+      (AD=DLOFHT )
+ 054T 'Data Nasc'
+ 065T #TL-ANIV /*.01U008 D    .
+      (AD=DLOFHT )
+/
+ 002T 'Cargo'
+ 012T #TL-CARGO /*.01U030 A030 .
+      (AD=DLOFHT )
+/
+ 002T 'Endereco'
+/
+ 002T 'Rua/Av'
+ 012T #TL-ENDERECO /*.01U046 A054 .
+      (AD=DLOFHT AL=045 DL=046 )
+ 059T 'Pais'
+ 064T #TL-PAIS /*.01U015 A015 .
+      (AD=DLOFHT )
+/
+ 002T 'Cidade'
+ 012T #TL-CIDADE /*.01U020 A020 .
+      (AD=DLOFHT )
+ 038T 'CEP'
+/
+/
+ 002T 'Mes'
+ 014T 'Salarios'
+/
+ 002T LINES1.#TL-MES (1+0) /*.01U011 A009 .
+      (AD=DLOFHT AL=011 )
+   /**A1010000000100001000010000100001100012001001000001000HV
+ 014T LINES1.#TL-SALARIO (1+0) /*.01U011 A011 .
+      (AD=DLOFHT )
+   /**A1010000000100001000010000100001100012001001000001000HV
+/
+ 002T LINES1.#TL-MES (1+1) /*.01U011 A009 .
+      (AD=DLOFHT AL=011 )
+ 014T LINES1.#TL-SALARIO (1+1) /*.01U011 A011 .
+      (AD=DLOFHT )
+ 027T #TL-CEP /*.01U010 A010 .
+      (AD=DLOFHT CD=GR )
+/
+ 002T LINES1.#TL-MES (1+2) /*.01U011 A009 .
+      (AD=DLOFHT AL=011 )
+ 014T LINES1.#TL-SALARIO (1+2) /*.01U011 A011 .
+      (AD=DLOFHT )
+/
+ 002T LINES1.#TL-MES (1+3) /*.01U011 A009 .
+      (AD=DLOFHT AL=011 )
+ 014T LINES1.#TL-SALARIO (1+3) /*.01U011 A011 .
+      (AD=DLOFHT )
+/
+ 002T LINES1.#TL-MES (1+4) /*.01U011 A009 .
+      (AD=DLOFHT AL=011 )
+ 014T LINES1.#TL-SALARIO (1+4) /*.01U011 A011 .
+      (AD=DLOFHT )
+ 030T #TL-MATRICULA /*.01U008 A008 .
+      (AD=DLOFHT )
+/
+ 002T LINES1.#TL-MES (1+5) /*.01U011 A009 .
+      (AD=DLOFHT AL=011 )
+ 014T LINES1.#TL-SALARIO (1+5) /*.01U011 A011 .
+      (AD=DLOFHT )
+/
+ 002T LINES1.#TL-MES (1+6) /*.01U011 A009 .
+      (AD=DLOFHT AL=011 )
+ 014T LINES1.#TL-SALARIO (1+6) /*.01U011 A011 .
+      (AD=DLOFHT )
+/
+ 002T LINES1.#TL-MES (1+7) /*.01U011 A009 .
+      (AD=DLOFHT AL=011 )
+ 014T LINES1.#TL-SALARIO (1+7) /*.01U011 A011 .
+      (AD=DLOFHT )
+/
+ 002T LINES1.#TL-MES (1+8) /*.01U011 A009 .
+      (AD=DLOFHT AL=011 )
+ 014T LINES1.#TL-SALARIO (1+8) /*.01U011 A011 .
+      (AD=DLOFHT )
+/
+ 002T LINES1.#TL-MES (1+9) /*.01U011 A009 .
+      (AD=DLOFHT AL=011 )
+ 014T LINES1.#TL-SALARIO (1+9) /*.01U011 A011 .
+      (AD=DLOFHT )
+/
+ 002T LINES1.#TL-MES (1+10) /*.01U011 A009 .
+      (AD=DLOFHT AL=011 )
+ 014T LINES1.#TL-SALARIO (1+10) /*.01U011 A011 .
+      (AD=DLOFHT )
+/
+ 002T LINES1.#TL-MES (1+11) /*.01U011 A009 .
+      (AD=DLOFHT AL=011 )
+ 014T LINES1.#TL-SALARIO (1+11) /*.01U011 A011 .
+      (AD=DLOFHT )
+* MAP2: VALIDATION *****************************************************
+* MAP2: END OF MAP *****************************************************
+END

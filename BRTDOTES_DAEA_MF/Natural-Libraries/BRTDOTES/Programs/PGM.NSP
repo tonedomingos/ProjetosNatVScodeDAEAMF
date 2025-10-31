@@ -1,0 +1,8 @@
+* >Natural Source Header 000000
+* :Mode R
+* :CP
+* :LineIncrement 10
+* <Natural Source Header
+READ (40)EMPLOYEES
+  WRITE PERSONNEL-ID NAME SEX
+END

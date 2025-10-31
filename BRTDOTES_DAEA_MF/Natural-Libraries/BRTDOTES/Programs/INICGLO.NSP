@@ -1,0 +1,20 @@
+* >Natural Source Header 000000
+* :Mode S
+* :CP
+* :LineIncrement 10
+* <Natural Source Header
+/** New Program INICGLO.
+/**
+/** :author brtdo
+/* TODO Enter your code here
+DEFINE DATA GLOBAL USING GLO
+END-DEFINE
+SET KEY ALL
+INPUT 'PF5 TERMANIATE'
+IF *PF-KEY = 'PF5'
+   TERMINATE
+END-IF
+MOVE 'TONE' TO +NOME
+MOVE 10 TO +IDADE
+* TESTE
+END
