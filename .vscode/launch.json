@@ -13,7 +13,7 @@
             "stopOnEntry": true,
             "ndvHost": "DAEA",
             "ndvPort": 7315,
-            "sessionParameters": "WEBIO=ON",
+            "sessionParameters": "CP=AUTO ETID=$ cficu=on PROFILE=XMLPROF",
             "parameter": "",
             "user": "BRTDO",
             "passwordRequired": false,
