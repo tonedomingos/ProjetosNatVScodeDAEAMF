@@ -2,7 +2,7 @@
 * :Mode R
 * :CP
 * :LineIncrement 10
-* <Natural Source Header
-READ (40)EMPLOYEES
+* <Natural Source Header teste 
+READ (40)EMPLOYEES 
   WRITE PERSONNEL-ID NAME SEX
 END
