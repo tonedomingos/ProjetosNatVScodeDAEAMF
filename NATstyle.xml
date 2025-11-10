@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<naturalStyleCheck version='1.0'>
+  <checks type="source">
+    <check class="CheckLineLength" name="Line length" severity="warning">
+      <property name="exclude" value="D3"/>
+      <property name="max" value="72"/>
+    </check>
+    <check class="CheckWhiteSpace" name="Whitespace" severity="info">
+      <property name="exclude" value="D3T"/>
+      <property name="noTab" value="false"/>
+    </check>
+    <check class="CheckTabs" name="Tab character" severity="info"/>
+    <check class="CheckHasLineNumbers" name="Line numbers" severity="warning"/>
+    <check class="CheckEmptyLine" name="Empty lines" severity="info">
+      <property name="exclude" value="D3T"/>
+    </check>
+    <check class="CheckRegExLine" name="Regular expression for single source lines" severity="warning" disabled="true">
+    </check>
+    <check class="CheckRegExSource" name="Regular expression for multiple source lines" severity="warning" disabled="true">
+    </check>
+    <check class="CheckNewlineAtEndOfFile" name="Newline at end of file missing" severity="info">
+      <property name="exclude" value="D"/>
+    </check>
+    <check class="CheckMaximumLineNumbers" name="Maximum number of source lines" severity="error">
+      <property name="max" value="9999"/>
+    </check>
+  </checks>
+  <checks type="header">
+    <check class="CheckHeader" name="Header" severity="error"/>
+    <check class="CheckHasDifferentNaturalName" name="Has different Natural name" severity="info"/>
+    <check class="CheckProgrammingMode" name="Programming mode" severity="info">
+      <property name="mode" value="reporting"/>
+    </check>
+    <check class="CheckFileNameNamingConvention" name="File name naming convention" severity="error">
+      <property name="regex" value="\S{2,32}"/>
+    </check>
+    <check class="CheckStruct" name="Struct" severity="info">
+      <property name="exclude" value="D4M83T"/>
+<!-- Missing parameter: limitItems -->
+      <property name="max" value="72"/>
+      <property name="indentation" value="2"/>
+<!-- Missing parameter: lineComments -->
+    </check>
+    <check class="CheckDDMNameNamingConvention" name="DDM naming convention" severity="warning">
+      <property name="regex" value="\S{2,32}"/>
+    </check>
+  </checks>
+  <checks type="parser">
+    <check class="CheckDataAreaDefineData" name="Data area define data" severity="error"/>
+    <check class="CheckUnusedLocalVariables" name="Unused local variables" severity="warning">
+      <property name="searchField" value="true"/>
+    </check>
+    <check class="CheckUnusedParameters" name="Unused parameters" severity="warning"/>
+    <check class="CheckUnusedSearchFields" name="Unused search fields" severity="warning"/>
+    <check class="CheckUsedAIVVariables" name="Used AIV variables" severity="warning" disabled="true">
+      <property name="okList" value="+test"/>
+<!-- Missing parameter: regEx -->
+    </check>
+    <check class="CheckTodoComment" name="TODO comment" severity="warning">
+      <property name="exclude" value="8T"/>
+    </check>
+    <check class="CheckFixmeComment" name="FIXME comment" severity="error">
+    </check>
+    <check class="CheckNATdocSource" name="NATdoc source" severity="warning">
+      <property name="exclude" value="4M8TC"/>
+    </check>
+    <check class="CheckNATdocVariable" name="NATdoc variable" severity="warning">
+      <property name="exclude" value="4M8TC"/>
+      <property name="testRedef" value="true"/>
+<!-- Missing parameter: useTags -->
+    </check>
+    <check class="CheckNATdocStyle" name="NATdoc style" severity="warning">
+      <property name="exclude" value="4M8TC"/>
+<!-- Missing parameter: testRedef -->
+<!-- Missing parameter: useTags -->
+<!-- Missing parameter: useParmTags -->
+    </check>
+    <check class="CheckTestUppercaseTranslation" name="Upper case translation of source" severity="warning" disabled="true">
+<!-- Missing parameter: limitItems -->
+<!-- Missing parameter: comment -->
+<!-- Missing parameter: singleQuote -->
+<!-- Missing parameter: doubleQuote -->
+    </check>
+    <check class="CheckHiddenField" name="Local variables shadow view" severity="warning"/>
+    <check class="CheckFullQualifiedVariable" name="Fully qualified variables" severity="warning">
+      <property name="viewField" value="false"/>
+    </check>
+    <check class="CheckNPathComplexity" name="NPath complexity" severity="warning">
+      <property name="max" value="30"/>
+    </check>
+    <check class="CheckCyclomaticComplexity" name="Cyclomatic complexity" severity="warning">
+      <property name="max" value="200"/>
+    </check>
+    <check class="CheckBooleanComplexity" name="Boolean complexity" severity="warning">
+      <property name="max" value="3"/>
+    </check>
+    <check class="CheckFunctionNameNamingConvention" name="Function naming convention" severity="warning">
+      <property name="regex" value="\S{2,32}"/>
+    </check>
+    <check class="CheckClassNameNamingConvention" name="Class naming convention" severity="warning">
+      <property name="regex" value="\S{2,32}"/>
+    </check>
+    <check class="CheckSubroutineNameNamingConvention" name="Subroutine naming convention" severity="warning">
+      <property name="regex" value="\S{1,32}"/>
+    </check>
+  </checks>
+  <checks type="error">
+    <check class="CheckErrorFileName" name="Error file name" severity="error"/>
+  </checks>
+  <checks type="resource">
+    <check class="CheckResourceFileName" name="Resource file name" severity="warning">
+      <property name="regex" value="(?i)\S{2,32}\.\S{1,3}"/>
+    </check>
+  </checks>
+  <checks type="library">
+    <check class="CheckLibraryMainFolder" name="Library directly below root folder" severity="warning"/>
+    <check class="CheckDuplicateLibraryFolder" name="Duplicate libraries" severity="warning" disabled="true"/>
+    <check class="CheckLibraryFolderNames" name="Library folder names" severity="warning" disabled="true">
+      <property name="regex" value="\S{2,32}"/>
+    </check>
+    <check class="CheckLibraryGrouping" name="Mixed object grouping" severity="warning" disabled="true"/>
+    <check class="CheckLibraryFileTypeFoldersOnly" name="Special folders" severity="warning" disabled="true"/>
+    <check class="CheckLibraryObjectTypeFoldersOnly" name="Group folders" severity="warning" disabled="true"/>
+    <check class="CheckNATdocLibraryDocumentation" name="NATdoc library documentation (library.html)" severity="warning"/>
+  </checks>
+</naturalStyleCheck>
