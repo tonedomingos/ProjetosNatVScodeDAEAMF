@@ -17,7 +17,7 @@
             "parameter": "",
             "user": "BRTDO",
             "passwordRequired": false,
-            "password": "natural6",
+            "password": "natural8",
             "passwordInput": false,
             "ssl": false,
             "sslPassword": "${command:extension.handleSslPassword}",
