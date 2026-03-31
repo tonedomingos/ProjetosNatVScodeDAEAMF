@@ -1,0 +1,152 @@
+* >Natural Source Header 000000
+* :Mode S
+* :CP IBM01140
+* :LineIncrement 10
+* <Natural Source Header
+************************************************************************
+*  APPLICATION : DEMAPP - DEMO APPLICATION FOR ARF/ALA PRODUCTS.
+*  HELPROUTINE : DEMAPP01
+*              : STARTUP PROGRAM FOR EMPLOYEE CRUD
+*  CREATED BY  : LUCIANO PIMENTA
+************************************************************************
+DEFINE DATA
+LOCAL USING DEMLEMPL
+LOCAL USING DEMLEMPI
+LOCAL
+1 #PFKEY-BAR(A053)
+1 #MSG-BAR(A050)
+1 #PERSONNEL-ID-N(N08)
+1 #CV-EMP05-PERSONNEL-ID(C)
+1 #PARM-PERSONNEL-ID(A08)
+1 DEMAPH01 (A008) INIT <'DEMAPH01'>
+END-DEFINE
+*
+ON ERROR
+   SET CONTROL 'WL35C6FB10/20'
+   INPUT (AD=OIB)
+          ' Application Error: ' *ERROR-NR (AD=I CD=PI)
+        / ' Please retry your transaction ' (AD=I CD=PI)
+   SET CONTROL 'WB'
+   STACK TOP COMMAND 'DEMAPP01'
+   STOP
+END-ERROR
+
+SET KEY ALL
+FORMAT LS=79 PS=24
+REPEAT
+  RESET EMP05
+  SET CONTROL 'MT'
+  MOVE 'PF3-Quit    PF9-List' TO #PFKEY-BAR
+  INPUT USING MAP 'DEMMAP0'
+
+  IF *PF-KEY EQ 'PF3'
+    BACKOUT TRANSACTION
+    TERMINATE
+  END-IF
+
+  IF *PF-KEY EQ 'PF9' /*CLONE-INSERT
+     R1. READ (300) EMP05 BY PERSONNEL-ID
+        DISPLAY NOTITLE PERSONNEL-ID FIRST-NAME CITY COUNTRY
+     END-READ
+     ESCAPE TOP
+  END-IF
+
+  IF EMP05.PERSONNEL-ID = ' '
+    SET CONTROL 'MT'
+    REINPUT 'Please inform Personnel-ID.'
+  END-IF
+
+  FIND EMP05 WITH PERSONNEL-ID = EMP05.PERSONNEL-ID
+    IF NO RECORDS FOUND
+      SET CONTROL 'MT'
+      REINPUT 'Personnel-ID not found.' MARK *EMP05.PERSONNEL-ID ALARM
+    END-NOREC
+
+    MOVE 'PF3-Quit    PF4-Clone/Add    PF5-Update    PF6-Delete' TO #PFKEY-BAR
+    MOVE 'Record retrieved successfully' TO #MSG-BAR
+    MOVE (AD=P) TO #CV-EMP05-PERSONNEL-ID
+    INPUT USING MAP 'DEMMAP2'
+
+    IF *PF-KEY NE 'PF3' AND *PF-KEY NE 'PF4' AND *PF-KEY NE 'PF5'
+                        AND *PF-KEY NE 'PF6' AND *PF-KEY NE 'PF9'
+      SET CONTROL 'MT'
+      REINPUT 'Invalid key. Use PF3-Quit, PF4-Clone/Add, PF5-Update or PF6-Delete'
+        MARK *EMP05.FIRST-NAME ALARM
+    END-IF
+
+    IF *PF-KEY EQ 'PF5' /*UPDATE
+      UPDATE
+      END TRANSACTION
+      SET CONTROL 'WL35C6FB10/20'
+      INPUT (AD=OIB)
+          ' Record Updated Successfully ' (AD=I CD=PI)
+        / '  Press <Enter> to continue  ' (AD=I CD=PI)
+        SET CONTROL 'WB'
+    END-IF
+
+    IF *PF-KEY EQ 'PF6' /*DELETE
+      DELETE
+      END TRANSACTION
+      SET CONTROL 'WL35C6FB10/20'
+      INPUT (AD=OIB)
+          ' Record Deleted Successfully ' (AD=I CD=PI)
+        / '  Press <Enter> to continue  ' (AD=I CD=PI)
+        SET CONTROL 'WB'
+
+    END-IF
+
+    IF *PF-KEY EQ 'PF4' /*CLONE-INSERT
+      ESCAPE BOTTOM
+    END-IF
+
+  END-FIND
+
+  IF *PF-KEY EQ 'PF4'   /* CLONE-INSERT
+    MOVE BY NAME EMP05 TO EMP05-I
+    READ (1) EMP05 DESCENDING BY PERSONNEL-ID
+      #PERSONNEL-ID-N := VAL(EMP05.PERSONNEL-ID)
+      ADD 100 TO #PERSONNEL-ID-N
+      MOVE #PERSONNEL-ID-N TO EMP05.PERSONNEL-ID
+    END-READ
+    RESET EMP05.NAME EMP05.MIDDLE-NAME EMP05.FIRST-NAME
+    MOVE 'PF3-Quit    PF4-Add' TO #PFKEY-BAR
+    MOVE 'Please modify the record below and PF4 to store it' TO #MSG-BAR
+
+    REPEAT
+      SET CONTROL 'MT'
+      INPUT USING MAP 'DEMMAP2'
+      IF *PF-KEY NE 'PF3' AND *PF-KEY NE 'PF4'
+        SET CONTROL 'MT'
+        REINPUT 'Invalid key. Use PF3-Quit or PF4-Add' MARK *EMP05.FIRST-NAME ALARM
+      END-IF
+      IF *PF-KEY EQ 'PF3'
+        BACKOUT TRANSACTION
+        ESCAPE TOP
+      END-IF
+      IF EMP05.PERSONNEL-ID = ' '
+        SET CONTROL 'MT'
+        REINPUT 'Please inform Personnel-ID.'
+      END-IF
+      IF EMP05.FIRST-NAME EQ ' '
+        SET CONTROL 'MT'
+        REINPUT 'Please inform First Name.' MARK *EMP05.FIRST-NAME ALARM
+      END-IF
+      IF EMP05.NAME EQ ' '
+        SET CONTROL 'MT'
+        REINPUT 'Please inform Name.' MARK *EMP05.NAME ALARM
+      END-IF
+      IF *PF-KEY EQ 'PF4'
+        STORE EMP05
+        END TRANSACTION
+        SET CONTROL 'WL35C6FB10/20'
+        INPUT (AD=OIB)
+            '  Record Added Successfully ' (AD=I CD=PI)
+          / '  Press <Enter> to continue ' (AD=I CD=PI)
+        SET CONTROL 'WB'
+        ESCAPE BOTTOM
+      END-IF
+    END-REPEAT
+  END-IF
+
+END-REPEAT
+END

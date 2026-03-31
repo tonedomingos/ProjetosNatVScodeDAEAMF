@@ -69,6 +69,10 @@
                 <LibrarySteplibExtensions>1;SYSTEM[-1,-1];</LibrarySteplibExtensions>
             </LibrarySteplib>
             <LibrarySteplib>
+                <LibrarySteplibName>DEMOCL</LibrarySteplibName>
+                <LibrarySteplibNSV>SYSTEM</LibrarySteplibNSV>
+            </LibrarySteplib>
+            <LibrarySteplib>
                 <LibrarySteplibName>SYSTEM</LibrarySteplibName>
                 <LibrarySteplibNSV>SYSTEM</LibrarySteplibNSV>
             </LibrarySteplib>
@@ -109,6 +113,22 @@
             <StructuredMode>false</StructuredMode>
             <LibraryPrivateMode>false</LibraryPrivateMode>
         </NatsecLibrary>
+        <NatsecLibrary>
+            <NatsecLibraryName>DEMOCL</NatsecLibraryName>
+            <NatsecLibraryFuser>(-1,-1)</NatsecLibraryFuser>
+            <TerminalCommandChar>%</TerminalCommandChar>
+            <TerminalCommandCharSwitch>true</TerminalCommandCharSwitch>
+            <DecimalCharacter>.</DecimalCharacter>
+            <FormatSpecify>false</FormatSpecify>
+            <InputAssignCharacter>=</InputAssignCharacter>
+            <InputDelimiterCharacter>,</InputDelimiterCharacter>
+            <LineSize>80</LineSize>
+            <ProcessingLoopLimit>99999999</ProcessingLoopLimit>
+            <PageSize>23</PageSize>
+            <SpacingFactor>1</SpacingFactor>
+            <StructuredMode>false</StructuredMode>
+            <LibraryPrivateMode>false</LibraryPrivateMode>
+        </NatsecLibrary>
     </NatsecRuntimeProfileLibrary>
     <AivVariables>
         <AivLibrary>
@@ -117,6 +137,10 @@
         </AivLibrary>
         <AivLibrary>
             <AivLibraryName>SYSTEM</AivLibraryName>
+            <AivVariable>+SAG_UTIL_TRACE_USER(a8)</AivVariable>
+        </AivLibrary>
+        <AivLibrary>
+            <AivLibraryName>DEMOCL</AivLibraryName>
             <AivVariable>+SAG_UTIL_TRACE_USER(a8)</AivVariable>
         </AivLibrary>
     </AivVariables>

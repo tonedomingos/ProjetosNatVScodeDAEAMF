@@ -1,0 +1,35 @@
+* >Natural Source Header 000000
+* :Mode S
+* :CP IBM01140
+* :LineIncrement 10
+* <Natural Source Header
+define data local
+1 vehi view of vehicles
+  2 personnel-id
+  2 class
+local
+1 #ct(n08)
+1 #i(n06)
+1 #n(n06)
+1 #loop(n06)
+end-define
+*
+format ls=80 ps=60
+input (sg=off) #loop
+if #loop eq 0
+   move 1000 to #loop
+end-if
+for #i 1 #loop
+r1. read    vehi by personnel-id /* eq 50005000
+    move 'A' to class
+    update (r1.)
+    if #n eq 25
+      end transaction
+      reset #n
+    end-if
+    add 1 to #ct
+    add 1 to #n
+  end-read
+end-for
+end transaction
+end

@@ -1,0 +1,63 @@
+* >Natural Source Header 000000
+* :Mode S
+* :CP IBM01140
+* <Natural Source Header
+* MAP2: PROTOTYPE VERSION 820 --- CREATED BY ONE 9.3.1 ---
+* INPUT USING MAP 'XXXXXXXX'
+*     #PFKEY-BAR DEMAPH01 EMP05.PERSONNEL-ID
+DEFINE DATA PARAMETER
+1 #PFKEY-BAR (A053)
+1  DEMAPH01 (A008)
+1 EMP05.PERSONNEL-ID (A008)
+END-DEFINE
+FORMAT PS=024 LS=079 ZP=OFF SG=OFF KD=OFF IP=OFF
+* MAP2: MAP PROFILES *****************************        410***********
+* .TTAAAMMOO   D I D I N D I D I        ?_)?&:+(                       *
+* 024079        N1NNUCN             X        01 SYSPROF NR             *
+************************************************************************
+INPUT          (     IP=OFF                                           /*
+                                                                       )
+/
+ 003T *USER /*.01S008 A008 .
+      (AD=ODLT CD=TU )
+ 018T ' Demo Application___________________________'(GRV)
+ 070T *PROGRAM /*.01S008 A008 .
+      (AD=ODLT CD=TU )
+/
+ 070T *DATE /*.01S008 A008 .
+      (AD=ODLT CD=TU )
+/
+ 003T 'Personnel ID'
+/
+ 003T EMP05.PERSONNEL-ID /*.99V008 A008 .
+      (AD=MILT'_' CD=GR HE=DEMAPH01,EMP05.PERSONNEL-ID )
+ 018T '<Enter> to retrieve record'(PII)
+/
+ 018T 'or ? to select from a list'(PII)
+/
+/
+/
+/
+/
+/
+/
+/
+/
+/
+/
+/
+/
+/
+/
+/
+ 013T #PFKEY-BAR /*.01U053 A053 .
+      (AD=OILW CD=PI )
+/
+/
+* MAP2: VALIDATION *****************************************************
+RULEVAR D01EMP05.PERSONNEL-ID
+INCDIR DEMO-EMPL-05                     PERSONNEL-ID                    ;
+RULEVAR D01#PFKEY-BAR
+* CDIR #PFKEY-BAR                       #PFKEY-BAR                      ;
+* MAP2: END OF MAP *****************************************************
+END

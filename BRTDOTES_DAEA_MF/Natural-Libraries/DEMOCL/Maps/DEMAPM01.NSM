@@ -1,0 +1,122 @@
+* >Natural Source Header 000000
+* :Mode S
+* :CP IBM01140
+* <Natural Source Header
+* MAP2: PROTOTYPE VERSION 820 --- CREATED BY NAT 0902030002 ---
+* INPUT USING MAP 'XXXXXXXX'
+*     #CV-SEL(*) #IND-TAB #NAME(*) #PERSONNEL-ID(*) #PERSONNEL-ID-INIC
+*     #TL-TAB-SEL(*)
+DEFINE DATA PARAMETER
+1  #CV-SEL (C/00001:00300)
+1  #IND-TAB (N07.0)
+1 #NAME (A020/00001:00300)
+1 #PERSONNEL-ID (A008/00001:00300)
+1 #PERSONNEL-ID-INIC (A008)
+1 #TL-TAB-SEL (A001/00001:00300)
+END-DEFINE
+FORMAT PS=019 LS=046 ZP=OFF SG=OFF KD=OFF IP=OFF
+* MAP2: MAP PROFILES *****************************        410***********
+* .TTAAAMMOO   D I D I N D I D I        ?_)Â¦&:+(                      *
+* 019045        N0NNUCN_            X        01 SYSPROF NL           1 *
+************************************************************************
+INPUT          (     IP=OFF                                           /*
+                                                                       )
+/
+ 004T 'Employee list sorted by Personnel ID'(I)
+/
+/
+ 003T 'Sel'(I)
+ 007T 'Person.ID  Name'(I)
+/
+ 003T '--- ---------'(I)
+ 018T '-' (023)(I)
+/
+ 004T #TL-TAB-SEL (#IND-TAB+0) /*.99U001 A001 .
+      (AD=MYT'_' CV=#CV-SEL(#IND-TAB+0) )
+   /**A1003000000100001000010000100001100010001001000001000HV
+ 007T #PERSONNEL-ID (#IND-TAB+0) /*.01U008 A008 .
+      (AD=ODR )
+   /**A1003000000100001000010000100001100010001001000001000HV
+ 018T #NAME (#IND-TAB+0) /*.01U020 A020 .
+      (AD=OD )
+   /**A1003000000100001000010000100001100010001001000001000HV
+/
+ 004T #TL-TAB-SEL (#IND-TAB+1) /*.99U001 A001 .
+      (AD=MYT'_' CV=#CV-SEL(#IND-TAB+1) )
+ 007T #PERSONNEL-ID (#IND-TAB+1) /*.01U008 A008 .
+      (AD=ODR )
+ 018T #NAME (#IND-TAB+1) /*.01U020 A020 .
+      (AD=OD )
+/
+ 004T #TL-TAB-SEL (#IND-TAB+2) /*.99U001 A001 .
+      (AD=MYT'_' CV=#CV-SEL(#IND-TAB+2) )
+ 007T #PERSONNEL-ID (#IND-TAB+2) /*.01U008 A008 .
+      (AD=ODR )
+ 018T #NAME (#IND-TAB+2) /*.01U020 A020 .
+      (AD=OD )
+/
+ 004T #TL-TAB-SEL (#IND-TAB+3) /*.99U001 A001 .
+      (AD=MYT'_' CV=#CV-SEL(#IND-TAB+3) )
+ 007T #PERSONNEL-ID (#IND-TAB+3) /*.01U008 A008 .
+      (AD=ODR )
+ 018T #NAME (#IND-TAB+3) /*.01U020 A020 .
+      (AD=OD )
+/
+ 004T #TL-TAB-SEL (#IND-TAB+4) /*.99U001 A001 .
+      (AD=MYT'_' CV=#CV-SEL(#IND-TAB+4) )
+ 007T #PERSONNEL-ID (#IND-TAB+4) /*.01U008 A008 .
+      (AD=ODR )
+ 018T #NAME (#IND-TAB+4) /*.01U020 A020 .
+      (AD=OD )
+/
+ 004T #TL-TAB-SEL (#IND-TAB+5) /*.99U001 A001 .
+      (AD=MYT'_' CV=#CV-SEL(#IND-TAB+5) )
+ 007T #PERSONNEL-ID (#IND-TAB+5) /*.01U008 A008 .
+      (AD=ODR )
+ 018T #NAME (#IND-TAB+5) /*.01U020 A020 .
+      (AD=OD )
+/
+ 004T #TL-TAB-SEL (#IND-TAB+6) /*.99U001 A001 .
+      (AD=MYT'_' CV=#CV-SEL(#IND-TAB+6) )
+ 007T #PERSONNEL-ID (#IND-TAB+6) /*.01U008 A008 .
+      (AD=ODR )
+ 018T #NAME (#IND-TAB+6) /*.01U020 A020 .
+      (AD=OD )
+/
+ 004T #TL-TAB-SEL (#IND-TAB+7) /*.99U001 A001 .
+      (AD=MYT'_' CV=#CV-SEL(#IND-TAB+7) )
+ 007T #PERSONNEL-ID (#IND-TAB+7) /*.01U008 A008 .
+      (AD=ODR )
+ 018T #NAME (#IND-TAB+7) /*.01U020 A020 .
+      (AD=OD )
+/
+ 004T #TL-TAB-SEL (#IND-TAB+8) /*.99U001 A001 .
+      (AD=MYT'_' CV=#CV-SEL(#IND-TAB+8) )
+ 007T #PERSONNEL-ID (#IND-TAB+8) /*.01U008 A008 .
+      (AD=ODR )
+ 018T #NAME (#IND-TAB+8) /*.01U020 A020 .
+      (AD=OD )
+/
+ 004T #TL-TAB-SEL (#IND-TAB+9) /*.99U001 A001 .
+      (AD=MYT'_' CV=#CV-SEL(#IND-TAB+9) )
+ 007T #PERSONNEL-ID (#IND-TAB+9) /*.01U008 A008 .
+      (AD=ODR )
+ 018T #NAME (#IND-TAB+9) /*.01U020 A020 .
+      (AD=OD )
+/
+ 004T 'Reposition to Personnel ID:'(I)
+ 033T #PERSONNEL-ID-INIC /*.99U008 A008 .
+      (AD=MILT'_' DL=008 )
+/
+ 002T '-' (042)
+/
+ 004T 'PF3'(I)
+ 008T 'Quit'
+ 017T 'PF7'(I)
+ 021T '-Pag'
+ 028T 'PF8'(I)
+ 032T '+Pag'
+/
+* MAP2: VALIDATION *****************************************************
+* MAP2: END OF MAP *****************************************************
+END

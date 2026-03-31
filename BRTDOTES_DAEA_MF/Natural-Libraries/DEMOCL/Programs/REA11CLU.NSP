@@ -1,0 +1,15 @@
+* >Natural Source Header 000000
+* :Mode R
+* :CP IBM01140
+* :LineIncrement 10
+* <Natural Source Header
+define data local
+using DEMLEMPL
+local
+1 i(n07)
+end-define
+read emp05 by PERSONNEL-ID /* EQ '60010000'
+ display emp05.personnel-id emp05.name (al=15) emp05.birth
+ input (ad=oil) 'Tecle ENTER para continuar...'
+loop
+end

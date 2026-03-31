@@ -1,0 +1,55 @@
+* >Natural Source Header 000000
+* :Mode S
+* :CP IBM01140
+* :LineIncrement 10
+* <Natural Source Header
+define data local
+1 empl view of employees
+  2 personnel-id
+  2 job-title
+local
+1 #ct(n08)
+1 #i(n06)
+1 #n(n06)
+1 #loop(n06)
+1 #error(n04)
+1 redefine #error
+  2 #lev (n01)
+  2 #sublev(n03)
+end-define
+*
+on error
+ move *error-nr to #error
+ terminate #sublev
+end-error
+*
+format ls=80 ps=60
+* input (sg=off) #loop
+if #loop eq 0
+   move 1 to #loop
+end-if
+perform updating
+
+define subroutine updating
+for #i 1 #loop
+  r1. read (1000) empl by personnel-id
+    compress *date *timx into job-title
+*    set control 'N'
+*    input(ad=ol)   '====================================== '
+*      / 'Counter...........: ' #ct
+*      / 'ISN...............: ' *isn
+*      / 'Personnel ID......: ' personnel-id
+*      / 'Time last update..: ' job-title (ad=I)
+*      / '====================================== '
+    update (r1.)
+    if #n eq 60
+      end transaction
+      reset #n
+    end-if
+    add 1 to #ct
+    add 1 to #n
+  end-read
+end-for
+end transaction
+end-subroutine
+end
