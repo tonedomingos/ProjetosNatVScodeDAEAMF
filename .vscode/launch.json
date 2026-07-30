@@ -17,7 +17,7 @@
             "parameter": "",
             "user": "BRTDO",
             "passwordRequired": false,
-            "password": "natural8",
+            "password": "sag2008",
             "passwordInput": false,
             "ssl": false,
             "sslPassword": "${command:extension.handleSslPassword}",
