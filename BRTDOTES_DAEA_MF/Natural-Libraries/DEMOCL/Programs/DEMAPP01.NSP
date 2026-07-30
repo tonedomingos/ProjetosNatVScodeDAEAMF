@@ -51,7 +51,7 @@ REPEAT
      ESCAPE TOP
   END-IF
 * TESTE READSHOW
-  IF EMP05.PERSONNEL-ID = ' '
+  IF EMP05.PERSONNEL-ID = ' ' 
     SET CONTROL 'MT'
     REINPUT 'Please inform Personnel-ID.'
   END-IF
