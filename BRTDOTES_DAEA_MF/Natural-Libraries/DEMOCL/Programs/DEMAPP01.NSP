@@ -9,7 +9,7 @@
 *              : STARTUP PROGRAM FOR EMPLOYEE CRUD
 *  CREATED BY  : LUCIANO PIMENTA
 ************************************************************************
-DEFINE DATA
+DEFINE DATA 
 LOCAL USING DEMLEMPL
 LOCAL USING DEMLEMPI
 LOCAL
